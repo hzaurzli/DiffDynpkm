@@ -1,0 +1,13 @@
+Package: DiffDynpkm
+Type: Package
+Title: fpkm/rpkm/cpm/tpm Calculate differential expression and predic dynamic expression in different conditions
+Version: 0.1.0
+Author: Small runze
+Maintainer: The package maintainer <Small.runze@gmail.com>
+Description: Calculate the differential expression of genes using fpkm/rpkm/tpm/cpm
+Depends: R (>= 3.5.0)
+License: GPL-3
+Encoding: UTF-8
+Imports: fitdistrplus,MASS,utils,dplyr,stats,mgcv
+LazyData: true
+RoxygenNote: 7.1.2
