@@ -146,7 +146,7 @@ Gene_20 50.613347  9.4147402 79.222878  3.229073 9.21405144 9.2609417 2.888848  
 ```
 
 
-##Predic dynamic expression
+## Predic dynamic expression
 ```
 data('exp')
 
