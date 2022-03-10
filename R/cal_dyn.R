@@ -38,7 +38,7 @@ cal_dyn = function(design,exp, gene = 'gene_1',k = c(3,3), bs = 'cr'){
     stop('Gene expression matrix must be data.frame!')
   }
 
-
+  library(mgcv)
   library(dplyr)
   for (i in 3:ncol(design)) {
     if (!is.numeric(design[,i])) {
