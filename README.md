@@ -1,5 +1,5 @@
-# Diffpkm
-Calculate the differential expression of genes by using fpkm/rpkm/tpm/cpm for two group comparison
+# DiffDynpkm
+fpkm/rpkm/cpm/tpm Calculate differential expression and predic dynamic expression in different conditions
 
 # Install package
 ```
@@ -7,15 +7,16 @@ devtools::install_github('hzaurzli/Diffpkm')
 library(Diffpkm)
 ```
 
-# How to use Diffpkm
-## 1.without NB model to calculate logFoldChange
+# How to use DiffDynpkm
+## Calculate differential expression
+### 1.without NB model to calculate logFoldChange
 #### [1].glm model p value calculation
 ```
-data("data")
+data("gene_fpkm")
 # treat is the treatment group
-treat = data[,1:3]
+treat = gene_fpkm[,1:3]
 # control is the control group
-control = data[,4:6]
+control = gene_fpkm[,4:6]
 result = cal_diff(treat,control,method = "glm",shrink = F)
 
 result
@@ -44,11 +45,11 @@ Gene_20 50.613347  9.4147402 79.222878  3.229073 9.21405144 9.2609417 2.681650 7
 ```
 #### [2].wlicox p value calculation
 ```
-data("data")
+data("gene_fpkm")
 # treat is the treatment group
-treat = data[,1:3]
+treat = gene_fpkm[,1:3]
 # control is the control group
-control = data[,4:6]
+control = gene_fpkm[,4:6]
 result = cal_diff(treat,control,method = "wilcox",shrink = F)
 
 result
@@ -79,11 +80,11 @@ Gene_20 50.613347  9.4147402 79.222878  3.229073 9.21405144 9.2609417 2.681650  
 ## 2.with NB model to calculate logFoldChange
 #### [1].glm model p value calculation
 ```
-data("data")
+data("gene_fpkm")
 # treat is the treatment group
-treat = data[,1:3]
+treat = gene_fpkm[,1:3]
 # control is the control group
-control = data[,4:6]
+control = gene_fpkm[,4:6]
 result = cal_diff(treat,control,method = "glm",shrink = T)
 
 result
@@ -112,11 +113,11 @@ Gene_20 50.613347  9.4147402 79.222878  3.229073 9.21405144 9.2609417 2.888848 7
 ```
 #### [2].wilcox p value calculation
 ```
-data("data")
+data("gene_fpkm")
 # treat is the treatment group
-treat = data[,1:3]
+treat = gene_fpkm[,1:3]
 # control is the control group
-control = data[,4:6]
+control = gene_fpkm[,4:6]
 result = cal_diff(treat,control,method = "wilcox",shrink = T)
 
 result
@@ -142,4 +143,65 @@ Gene_17 66.353787 52.8402758 62.794364  4.493450 1.10471320 7.5514195 3.455286  
 Gene_18 77.868354  0.8073661 31.499290  5.529022 2.05673142 1.2623550 4.328954  0.50     1
 Gene_19 41.133018 41.6323200 62.676640  9.832506 5.18450921 1.1238172 3.004767  0.25     1
 Gene_20 50.613347  9.4147402 79.222878  3.229073 9.21405144 9.2609417 2.888848  0.25     1
+```
+
+
+##Predic dynamic expression
+```
+data('exp')
+
+       heart-0_1 heart-5_1 heart-10_1 heart-0_2 heart-5_2   heart-10_2 brain-0_1 brain-5_1 brain-10_1 brain-0_2 brain-5_2 brain-10_2
+gene_1 0.7943423 0.4398317  0.7544752 0.6292211 0.7101824 0.0006247733 0.4753166 0.2201189  0.3798165 0.6127710 0.3517979  0.1111354
+gene_2 0.3181810 0.2316258  0.1428000 0.4145463 0.4137243 0.3688454509 0.1524447 0.1388061  0.2330341 0.4659625 0.2659726  0.8578277
+gene_3 0.4667790 0.5115055  0.5999890 0.3328235 0.4886130 0.9544738275 0.4829024 0.8903502  0.9144382 0.6087350 0.4106898  0.1470947
+gene_4 0.1419069 0.6900071  0.6192565 0.8913941 0.6729991 0.7370777379 0.5211357 0.6598384  0.8218055 0.7862816 0.9798219  0.4394315
+gene_5 0.4447680 0.2179907  0.5022996 0.3539046 0.6499852 0.3747139566 0.3554454 0.5336879  0.7403344 0.2211029 0.4127461  0.2656867
+          gut-0_1   gut-5_1   gut-10_1   gut-0_2   gut-5_2  gut-10_2  lung-0_1   lung-5_1 lung-10_1  lung-0_2  lung-5_2  lung-10_2
+gene_1 0.24361947 0.6680556 0.41764678 0.7881958 0.1028646 0.4348927 0.9849570 0.89305111 0.8864691 0.1750527 0.1306957 0.65310193
+gene_2 0.04583117 0.4422001 0.79892485 0.1218993 0.5609480 0.2065314 0.1275317 0.75330786 0.8950454 0.3744628 0.6651152 0.09484066
+gene_3 0.93529980 0.3012289 0.06072057 0.9477269 0.7205963 0.1422943 0.5492847 0.95409124 0.5854834 0.4045103 0.6478935 0.31982062
+gene_4 0.31170220 0.4094750 0.01046711 0.1838495 0.8427293 0.2311618 0.2391000 0.07669117 0.2457237 0.7321352 0.8474532 0.49752727
+gene_5 0.62997305 0.1838285 0.86364411 0.7465680 0.6682846 0.6180179 0.3722381 0.52983569 0.8746823 0.5817501 0.8397678 0.31244816
+       liver-0_1 liver-5_1 liver-10_1 liver-0_2 liver-5_2 liver-10_2
+gene_1 0.3435165 0.6567581  0.3203732 0.1876911 0.7822943 0.09359499
+gene_2 0.3839696 0.2743836  0.8146400 0.4485163 0.8100644 0.81238951
+gene_3 0.3077200 0.2197676  0.3694889 0.9842192 0.1542023 0.09104400
+gene_4 0.3879090 0.2464490  0.1110965 0.3899944 0.5719353 0.21689276
+gene_5 0.7082903 0.2650178  0.5943432 0.4812898 0.2650327 0.56459043
+
+data('design)
+
+   group_name rep tissue time
+1   heart-0_1   1      3    0
+2   heart-5_1   2      3    5
+3  heart-10_1   3      3   10
+4   heart-0_2   1      3    0
+5   heart-5_2   2      3    5
+6  heart-10_2   3      3   10
+7   brain-0_1   4      1    0
+8   brain-5_1   5      1    5
+9  brain-10_1   6      1   10
+10  brain-0_2   4      1    0
+11  brain-5_2   5      1    5
+12 brain-10_2   6      1   10
+13    gut-0_1   7      2    0
+14    gut-5_1   8      2    5
+15   gut-10_1   9      2   10
+16    gut-0_2   7      2    0
+17    gut-5_2   8      2    5
+18   gut-10_2   9      2   10
+19   lung-0_1  10      5    0
+20   lung-5_1  11      5    5
+21  lung-10_1  12      5   10
+22   lung-0_2  10      5    0
+23   lung-5_2  11      5    5
+24  lung-10_2  12      5   10
+25  liver-0_1  13      4    0
+26  liver-5_1  14      4    5
+27 liver-10_1  15      4   10
+28  liver-0_2  13      4    0
+29  liver-5_2  14      4    5
+30 liver-10_2  15      4   10
+
+cal_dyn(exp = exp,design = design,k=c(3,3),gene = 'gene_1',bs = 'cr')
 ```
