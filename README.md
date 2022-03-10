@@ -3,8 +3,8 @@ fpkm/rpkm/cpm/tpm Calculate differential expression and predic dynamic expressio
 
 # Install package
 ```
-devtools::install_github('hzaurzli/Diffpkm')
-library(Diffpkm)
+devtools::install_github('hzaurzli/DiffDynpkm')
+library(DiffDynpkm)
 ```
 
 # How to use DiffDynpkm
