@@ -203,5 +203,6 @@ data('design)
 29  liver-5_2  14      4    5
 30 liver-10_2  15      4   10
 
-cal_dyn(exp = exp,design = design,k=c(3,3),gene = 'gene_1',bs = 'cr')
+model = cal_dyn(exp = exp,design = design,k=c(3,3),gene = 'gene_1',bs = 'cr')
+summary(model)
 ```
