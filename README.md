@@ -208,4 +208,4 @@ summary(model)
 ```
 # Citation
 
-Kindly cite by using citation("DiffDynpkm") if you think DiffDynpkm helps you. Alternative way is Small runze (2022). DiffDynpkm: An R package for analysis in differential expression of fpkm,rpkm cpm,tpm and dynamic expression analysis. R package version 0.1.0, <URL:[https://github.com/hzaurzli/DiffDynpkm/](https://github.com/hzaurzli/DiffDynpkm/)>.
+Kindly cite by using citation("DiffDynpkm") if you think DiffDynpkm helps you. Alternative way is Small runze (2022). DiffDynpkm: An R package for analysis in differential expression of fpkm,rpkm cpm,tpm and dynamic expression analysis. R package version 0.1.0, <URL: https://github.com/hzaurzli/DiffDynpkm/>.
