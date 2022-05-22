@@ -206,3 +206,6 @@ data('design)
 model = cal_dyn(exp = exp,design = design,k=c(3,3),gene = 'gene_1',bs = 'cr')
 summary(model)
 ```
+# Citation
+
+Kindly cite by using citation("DiffDynpkm") if you think DiffDynpkm helps you. Alternative way is Small runze (2022). DiffDynpkm: An R package for analysis in differential expression of fpkm,rpkm cpm,tpm and dynamic expression analysis. R package version 0.1.0, <URL:https://github.com/hzaurzli/DiffDynpkm/>.
