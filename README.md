@@ -8,6 +8,9 @@ library(DiffDynpkm)
 ```
 
 # How to use DiffDynpkm
+## Notice
+If your sample size is less than 10, it is recommended to use glm; if your sample size is greater than 10, it is recommended to use wilcox.
+
 ## Calculate differential expression
 ### 1.without NB model to calculate logFoldChange
 #### [1].glm model p value calculation
